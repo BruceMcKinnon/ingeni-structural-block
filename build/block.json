@@ -1,0 +1,51 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "ingeni-structural/ingeni-structural-block",
+  "version": "0.1.0",
+  "title": "Ingeni Structural Block",
+  "category": "design",
+  "icon": "hammer",
+  "description": "Provides additional HTML structural elements for implement background images and pseudo element images.",
+  "supports": {
+    "html": false,
+    "align": true
+  },
+  "textdomain": "ingeni-structural-block",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "attributes": {
+    "backgroundColor": {
+      "type": "string",
+      "default": "#ffffff",
+      "source": "attribute"
+    },
+    "textColor": {
+      "type": "string",
+      "default": "#000000",
+      "source": "attribute"
+    },
+    "backgroundImage": {
+      "type": "string",
+      "source": "attribute",
+      "selector": "img",
+      "attribute": "src",
+      "default": ""
+    },
+    "beforeImage": {
+      "type": "string",
+      "source": "attribute",
+      "selector": "img",
+      "attribute": "src",
+      "default": "https://images.pexels.com/photos/12301516/pexels-photo-12301516.jpeg"
+    },
+    "afterImage": {
+      "type": "string",
+      "source": "attribute",
+      "selector": "img",
+      "attribute": "src",
+      "default": ""
+    }
+  }
+}
