@@ -29,20 +29,45 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
-import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
+export default function editBlock( props ) {
+	// This returns the HTML to the back-end
+	const blockProps = useBlockProps( );
+	
+	const { attributes } = props;
 
-
-export default function Edit() {
-	const blockProps = useBlockProps();
-
+	// Use array destructuring of the attributes
+	var { bgImage, beforeImage, afterImage } = attributes;
+			
 	return (
-		<div { ...useBlockProps() }>
-			<img class="bg_img" />
-			<div class="wrapper_before"></div>
-			<div class="wrapper">
-				<InnerBlocks />
-			</div>
-			<div class="wrapper_after"></div>
+		
+		<div { ...blockProps } >
+
+			<div className="bg_img"></div>
+
+			<div className="wrapper_before"></div>
+
+			<div className="full wp-block-group"><div class="wp-block-group__inner-container">
+			<InnerBlocks />
+			</div></div>
+
+			<div className="wrapper_after"></div>
 		</div>
 	);
+
 }
+
+/*
+
+					<InnerBlocks />
+
+
+				<div className="bg_img"><img src={ bgImage } /></div>
+
+				<div className="wrapper_before"><img src={ beforeImage } /></div>
+
+				<div className="full wp-block-group"><div class="wp-block-group__inner-container">
+					<InnerBlocks />
+				</div></div>
+
+				<div className="wrapper_after"><img src={ afterImage } /></div>
+				*/

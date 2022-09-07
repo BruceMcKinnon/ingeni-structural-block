@@ -4,7 +4,8 @@
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-//import { useBlockProps } from '@wordpress/block-editor';
+
+import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
 
 /**
  * The save function defines the way in which the different attributes should
@@ -15,13 +16,42 @@
  *
  * @return {WPElement} Element to render.
  */
-export default function save(props) {
-	const blockProps = useBlockProps();
+export default function saveBlock( props ) {
+
 	const { attributes } = props;
 
+	// Use array destructuring of the attributes
+	const { bgImage, beforeImage, afterImage } = attributes;
+
 	return (
-		<div class="ingeni-structural-block">
-			<div {...useBlockProps.save()} src={attributes.src} />
+		<div { ...useBlockProps.save() } >
+
+			<div className="bg_img"></div>
+
+			<div className="wrapper_before"></div>
+
+			<div className="full wp-block-group"><div class="wp-block-group__inner-container">
+			<InnerBlocks.Content />
+			</div></div>
+
+			<div className="wrapper_after"></div>
 		</div>
 	);
 }
+
+
+/*
+			<InnerBlocks />
+{ ...blockProps }
+
+
+			<div className="bg_img"><img src={ bgImage } /></div>
+
+			<div className="wrapper_before"><img src={ beforeImage } /></div>
+
+			<div className="full wp-block-group"><div class="wp-block-group__inner-container">
+				<InnerBlocks />
+			</div></div>
+
+			<div className="wrapper_after"><img src={ afterImage } /></div>
+*/

@@ -7,11 +7,12 @@
 
 .wp-block-ingeni-structural-ingeni-structural-block {
 	color: #000000;
-	background-color: #ffffff;
+	background-color: #F9F9F9;
 	padding: 0;
 	width: 100vw;
 	margin: 0 calc(50% - 50vw);
 	position: relative;
+	border: 1px solid #E6E7E8;
 
 
 	.bg_img, .wrapper_before, .wrapper_after {
@@ -55,4 +56,18 @@
 		z-index: 1;
 		background-color: transparent;
 	}
+}
+
+
+#isb-controls {
+	fieldset {
+		padding: 15px;
+		margin: 5px 0;
+
+		legend.blocks-base-control__label {
+			font-size: 13px;
+			font-weight: bold;
+		}
+	}
+	
 }
