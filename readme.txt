@@ -2,7 +2,7 @@
 Contributors:      The WordPress Contributors
 Tags:              block
 Tested up to:      6.0
-Stable tag:        0.1.1
+Stable tag:        0.2.0
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -33,3 +33,6 @@ Ingeni Structural Blocks allows you to wrap Gutenberg components inside HTML ele
 
 = 0.1.1 =
 * - Initial release, with support for structural HTML elements only.
+
+v0.2.0 - Added support for optional anchor ID
+

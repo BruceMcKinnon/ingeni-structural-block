@@ -21,7 +21,7 @@ import editBlock from './edit';
 import saveBlock from './save';
 
 import metadata from './block.json';
-import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
+import { InnerBlocks, useBlockProps, InspectorControls } from '@wordpress/block-editor';
 
 
 /**
@@ -31,6 +31,16 @@ import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
  */
 registerBlockType( metadata.name, {
 
+	attributes: {
+		blockID: {
+			type: 'string',
+			default: ''
+		},
+		show: {
+			type: 'boolean',
+			default: false
+		}
+	},
 	edit: editBlock,
 	save: saveBlock
 

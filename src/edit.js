@@ -11,7 +11,15 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
+import { InnerBlocks, useBlockProps, InspectorControls } from '@wordpress/block-editor';
+
+import { Fragment } from "@wordpress/element";
+import {
+	PanelBody,
+	PanelRow,
+	TextControl,
+} from "@wordpress/components";
+
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -33,24 +41,39 @@ export default function editBlock( props ) {
 	// This returns the HTML to the back-end
 	const blockProps = useBlockProps( );
 	
-	const { attributes } = props;
+	const { attributes, setAttributes } = props;
 
 	// Use array destructuring of the attributes
-	var { bgImage, beforeImage, afterImage } = attributes;
+	//var { bgImage, beforeImage, afterImage } = attributes;
+	//attributes({ blockID: '' });
 			
 	return (
-		
-		<div { ...blockProps } >
+		<div>
+			<InspectorControls>
+				<PanelBody title="Settings" initialOpen={true}>
+					<PanelRow>
+					<TextControl
+						label="Block Anchor ID"
+						onChange={ ( blockID ) => setAttributes( { blockID } ) }
+						value={ attributes.blockID }
+					/>
+					</PanelRow>
+				</PanelBody>
+			</InspectorControls>
 
-			<div className="bg_img"></div>
 
-			<div className="wrapper_before"></div>
+			<div { ...blockProps } >
 
-			<div className="full wp-block-group"><div class="wp-block-group__inner-container">
-			<InnerBlocks />
-			</div></div>
+				<div className="bg_img"></div>
 
-			<div className="wrapper_after"></div>
+				<div className="wrapper_before"></div>
+
+				<div className="full wp-block-group"><div class="wp-block-group__inner-container">
+				<InnerBlocks />
+				</div></div>
+
+				<div className="wrapper_after"></div>
+			</div>
 		</div>
 	);
 

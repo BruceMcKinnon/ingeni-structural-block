@@ -21,10 +21,11 @@ export default function saveBlock( props ) {
 	const { attributes } = props;
 
 	// Use array destructuring of the attributes
-	const { bgImage, beforeImage, afterImage } = attributes;
+	//const { bgImage, beforeImage, afterImage, blockID } = attributes;
+	//attributes({ blockID: '' });
 
 	return (
-		<div { ...useBlockProps.save() } >
+		<div { ...useBlockProps.save() } id={ attributes.blockID }>
 
 			<div className="bg_img"></div>
 
